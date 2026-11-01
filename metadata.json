@@ -1,0 +1,6 @@
+{
+  "name": "EcoCollect - Plastic Recycling & Weighing Platform",
+  "description": "Professional platform connecting Citizens, Companies, and Delivery Workers to collect, classify, physically weigh, and recycle plastic waste with automatic reward points.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}

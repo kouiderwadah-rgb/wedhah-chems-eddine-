@@ -1,0 +1,197 @@
+:root {
+  --color-eco-yellow: #F9D342;
+  --color-eco-blue: #3288D8;
+  --color-eco-green: #43B96B;
+  --color-eco-white: #FFFFFF;
+  --color-eco-gray: #F7F9FA;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', 'Tajawal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F7F9FA;
+  color: #1E293B;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Support for full RTL / LTR */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="ltr"] {
+  text-align: left;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Simulated Smartphone Frame */
+/* Dedicated Mobile Phone App Frame */
+.device-frame-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  background: radial-gradient(circle at 50% 20%, #1E293B 0%, #0F172A 100%);
+}
+
+.smartphone-chassis {
+  width: 100%;
+  max-width: 440px;
+  height: 880px;
+  max-height: 94vh;
+  background: #F7F9FA;
+  border-radius: 46px;
+  box-shadow:
+    0 0 0 10px #1E293B,
+    0 0 0 12px #334155,
+    0 25px 70px -15px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status Bar */
+.smartphone-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 22px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1E293B;
+  background: #FFFFFF;
+  z-index: 45;
+  user-select: none;
+}
+
+.smartphone-notch {
+  width: 120px;
+  height: 20px;
+  background: #1E293B;
+  border-radius: 0 0 14px 14px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smartphone-notch::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  background: #0B1329;
+  border-radius: 50%;
+  border: 1.5px solid #334155;
+}
+
+.smartphone-screen {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  background: #F7F9FA;
+  display: flex;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+
+.smartphone-home-bar {
+  position: sticky;
+  bottom: 6px;
+  left: 50%;
+  margin: 0 auto;
+  width: 120px;
+  height: 4px;
+  background: #94A3B8;
+  border-radius: 9999px;
+  z-index: 50;
+  opacity: 0.6;
+}
+
+/* Native screen presentation on mobile viewports (< 640px) */
+@media (max-width: 639px) {
+  .device-frame-wrapper {
+    padding: 0;
+    min-height: 100vh;
+    background: #F7F9FA;
+  }
+
+  .smartphone-chassis {
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .smartphone-notch {
+    display: none;
+  }
+
+  .smartphone-status-bar {
+    padding: 6px 14px 2px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+  font-family: inherit;
+  z-index: 10;
+}
+
+.eco-map-marker {
+  background: transparent;
+  border: none;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 18px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px !important;
+  line-height: 1.4 !important;
+}
